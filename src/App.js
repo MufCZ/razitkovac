@@ -9,7 +9,7 @@ const SCALE = 1.5;
 export default function App() {
   const [stampSrc, setStampSrc] = useState(null);
   const [stampPos, setStampPos] = useState({ x: 60, y: 60 });
-  const [stampSize, setStampSize] = useState({ w: 80, h: 53 });
+  const [stampSize, setStampSize] = useState({ w: 90, h: 47 });
   const [dragging, setDragging] = useState(false);
   const [resizing, setResizing] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
@@ -46,7 +46,7 @@ export default function App() {
     const lastCanvas = canvases[canvases.length - 1];
     setStampPos({
       x: lastCanvas.width / SCALE - 520,
-      y: lastCanvas.height / SCALE - 210,
+      y: lastCanvas.height / SCALE - 200,
     });
   };
 
