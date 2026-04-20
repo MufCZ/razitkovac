@@ -9,7 +9,7 @@ const SCALE = 1.5;
 export default function App() {
   const [stampSrc, setStampSrc] = useState(null);
   const [stampPos, setStampPos] = useState({ x: 60, y: 60 });
-  const [stampSize, setStampSize] = useState({ w: 120, h: 80 });
+  const [stampSize, setStampSize] = useState({ w: 80, h: 53 });
   const [dragging, setDragging] = useState(false);
   const [resizing, setResizing] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
