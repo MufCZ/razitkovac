@@ -1,6 +1,6 @@
 # Razítko na objednávku
 
-Webová aplikace pro vložení podpisu/razítka do PDF objednávky a export jako PNG.
+Webová aplikace pro vložení podpisu/razítka do PDF objednávky a export jako JPG.
 
 ## Instalace a spuštění
 
@@ -61,9 +61,9 @@ npm run deploy
 ## Jak aplikace funguje
 
 1. Nahrajte PDF objednávku
-2. Nahrajte PNG podpis/razítko  
+2. Nahrajte JPG podpis/razítko  
 3. Přetáhněte razítko na správné místo na poslední stránce
 4. Rohovou úchytkou změňte velikost razítka
-5. Klikněte "Exportovat jako PNG"
+5. Klikněte "Exportovat jako JPG"
 
-Výsledný soubor obsahuje všechny strany sloučené do jednoho PNG s razítkem na poslední straně.
+Výsledný soubor obsahuje všechny strany sloučené do jednoho JPG s razítkem na poslední straně.
