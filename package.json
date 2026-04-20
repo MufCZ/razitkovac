@@ -1,8 +1,8 @@
 {
-  "name": "razitko",
+  "name": "razitkovac",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://mufcz.github.io/razitko",
+  "homepage": "https://mufcz.github.io/razitkovac",
   "dependencies": {
     "pdfjs-dist": "3.11.174",
     "react": "^18.3.1",

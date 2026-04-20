@@ -33,7 +33,7 @@ Nahraďte `VASE_JMENO` vaším GitHub uživatelským jménem.
 
 ### 2. Vytvořte GitHub repozitář
 - Jděte na github.com → New repository
-- Název: `razitko`
+- Název: `razitkovac`
 - Veřejný repozitář
 
 ### 3. Propojte a pushněte
