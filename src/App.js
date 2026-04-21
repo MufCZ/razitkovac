@@ -56,6 +56,13 @@ export default function App() {
     setStampSrc(url);
     setStampLoaded(true);
     setExported(false);
+    const img = new Image();
+    img.onload = () => {
+      const maxW = 200;
+      const aspect = img.naturalWidth / img.naturalHeight;
+      setStampSize({ w: maxW, h: Math.round(maxW / aspect) });
+    };
+    img.src = url;
   };
 
   const getClientXY = (e) => {
@@ -127,7 +134,25 @@ export default function App() {
       if (i === lastPageIndex) {
         const stampImg = new Image();
         await new Promise((resolve) => { stampImg.onload = resolve; stampImg.src = stampSrc; });
-        ctx.drawImage(stampImg, stampPos.x * SCALE, yOffset + stampPos.y * SCALE, stampSize.w * SCALE, stampSize.h * SCALE);
+        const boxW = stampSize.w * SCALE;
+        const boxH = stampSize.h * SCALE;
+        const imgAspect = stampImg.naturalWidth / stampImg.naturalHeight;
+        const boxAspect = boxW / boxH;
+        let drawW, drawH;
+        if (imgAspect > boxAspect) {
+          drawW = boxW;
+          drawH = boxW / imgAspect;
+        } else {
+          drawH = boxH;
+          drawW = boxH * imgAspect;
+        }
+        ctx.drawImage(
+          stampImg,
+          stampPos.x * SCALE + (boxW - drawW) / 2,
+          yOffset + stampPos.y * SCALE + (boxH - drawH) / 2,
+          drawW,
+          drawH
+        );
       }
       yOffset += pageCanvases[i].height;
     }
