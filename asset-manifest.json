@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/razitkovac/static/js/main.d532857a.js",
+    "main.js": "/razitkovac/static/js/main.ad7b7562.js",
     "index.html": "/razitkovac/index.html",
-    "main.d532857a.js.map": "/razitkovac/static/js/main.d532857a.js.map"
+    "main.ad7b7562.js.map": "/razitkovac/static/js/main.ad7b7562.js.map"
   },
   "entrypoints": [
-    "static/js/main.d532857a.js"
+    "static/js/main.ad7b7562.js"
   ]
 }
