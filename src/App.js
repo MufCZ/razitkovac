@@ -175,7 +175,7 @@ export default function App() {
       <div style={{ maxWidth: 780, margin: "0 auto 32px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 6 }}>
           <div style={{ width: 36, height: 36, borderRadius: 8, background: "linear-gradient(135deg, #c8a96e, #e8d5a3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🖋</div>
-          <h1 style={{ margin: 0, fontSize: 22, fontWeight: 700, letterSpacing: "0.04em", color: "#e8d5a3" }}>Razítko na objednávku</h1>
+          <h1 style={{ margin: 0, fontSize: 22, fontWeight: 700, letterSpacing: "0.04em", color: "#e8d5a3" }}>Razítkovač</h1>
         </div>
         <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: "#c0b8a8", lineHeight: 1.6 }}>Nahrajte PDF objednávku a podpis/razítko. Umístěte razítko přetažením na správné místo a exportujte.</p>
       </div>
