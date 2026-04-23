@@ -58,7 +58,7 @@ export default function App() {
     setExported(false);
     const img = new Image();
     img.onload = () => {
-      const maxW = 80;
+      const maxW = 90;
       const aspect = img.naturalWidth / img.naturalHeight;
       setStampSize({ w: maxW, h: Math.round(maxW / aspect) });
     };
