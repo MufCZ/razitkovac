@@ -177,7 +177,7 @@ export default function App() {
           <div style={{ width: 36, height: 36, borderRadius: 8, background: "linear-gradient(135deg, #c8a96e, #e8d5a3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🖋</div>
           <h1 style={{ margin: 0, fontSize: 22, fontWeight: 700, letterSpacing: "0.04em", color: "#e8d5a3" }}>Razítko na objednávku</h1>
         </div>
-        <p style={{ margin: 0, fontSize: 13, color: "#8a8070", lineHeight: 1.6 }}>Nahrajte PDF objednávku a PNG podpis/razítko. Umístěte razítko přetažením na správné místo a exportujte jako PNG.</p>
+        <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: "#c0b8a8", lineHeight: 1.6 }}>Nahrajte PDF objednávku a PNG podpis/razítko. Umístěte razítko přetažením na správné místo a exportujte jako PNG.</p>
       </div>
 
       <div style={{ maxWidth: 780, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>
@@ -189,7 +189,7 @@ export default function App() {
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           {pageCanvases.length > 1 && (
             <div style={{ marginBottom: 8 }}>
-              <p style={{ fontSize: 12, color: "#6a6058", marginBottom: 8 }}>Strany 1{pageCanvases.length > 2 ? `–${pageCanvases.length - 1}` : ""} (bez razítka):</p>
+              <p style={{ fontSize: 14, fontWeight: 700, color: "#a09888", marginBottom: 8 }}>Strany 1{pageCanvases.length > 2 ? `–${pageCanvases.length - 1}` : ""} (bez razítka):</p>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 {pageCanvases.slice(0, -1).map((c, i) => (
                   <canvas key={i} ref={(el) => { if (el) { el.width = c.width; el.height = c.height; el.getContext("2d").drawImage(c, 0, 0); } }} style={{ width: Math.min(180, c.width / SCALE), height: "auto", border: "1px solid #2a2520", borderRadius: 4 }} />
@@ -198,7 +198,7 @@ export default function App() {
             </div>
           )}
 
-          <p style={{ fontSize: 12, color: "#6a6058", marginBottom: 8 }}>Poslední strana — umístěte razítko přetažením:</p>
+          <p style={{ fontSize: 14, fontWeight: 700, color: "#a09888", marginBottom: 8 }}>Poslední strana — umístěte razítko přetažením:</p>
 
           <div style={{ position: "relative", display: "inline-block", border: "1px solid #2a2520", borderRadius: 6, overflow: "hidden", width: "100%", maxWidth: lastCanvas.width / SCALE, userSelect: "none" }}>
             <canvas ref={(el) => { if (el) { el.width = lastCanvas.width; el.height = lastCanvas.height; el.getContext("2d").drawImage(lastCanvas, 0, 0); } }} style={{ display: "block", width: "100%", height: "auto" }} />
@@ -213,8 +213,8 @@ export default function App() {
             )}
           </div>
 
-          {!stampLoaded && <p style={{ fontSize: 12, color: "#8a6040", marginTop: 8 }}>↑ Nejprve nahrajte soubor razítka/podpisu</p>}
-          {stampLoaded && <p style={{ fontSize: 11, color: "#6a6058", marginTop: 6 }}>Táhněte razítko na správné místo · rohová úchytka pro změnu velikosti</p>}
+          {!stampLoaded && <p style={{ fontSize: 14, fontWeight: 700, color: "#c89060", marginTop: 8 }}>↑ Nejprve nahrajte soubor razítka/podpisu</p>}
+          {stampLoaded && <p style={{ fontSize: 13, fontWeight: 600, color: "#a09888", marginTop: 6 }}>Táhněte razítko na správné místo · rohová úchytka pro změnu velikosti</p>}
 
           <button onClick={handleExport} disabled={!stampLoaded || exporting} style={{ marginTop: 20, padding: "12px 28px", background: !stampLoaded || exporting ? "#2a2520" : "linear-gradient(135deg, #c8a96e, #e8c87a)", color: !stampLoaded || exporting ? "#5a5048" : "#1a1510", border: "none", borderRadius: 8, fontFamily: "inherit", fontSize: 14, fontWeight: 700, letterSpacing: "0.05em", cursor: !stampLoaded || exporting ? "not-allowed" : "pointer" }}>
             {exporting ? "Exportuji…" : exported ? "✓ Staženo — exportovat znovu" : "⬇ Exportovat jako PNG"}
@@ -222,7 +222,7 @@ export default function App() {
         </div>
       )}
 
-      {!pdfLoaded && <div style={{ maxWidth: 780, margin: "40px auto", textAlign: "center", color: "#3a3530", fontSize: 13 }}>Nejprve nahrajte PDF objednávku výše ↑</div>}
+      {!pdfLoaded && <div style={{ maxWidth: 780, margin: "40px auto", textAlign: "center", color: "#807060", fontSize: 15, fontWeight: 700 }}>Nejprve nahrajte PDF objednávku výše ↑</div>}
     </div>
   );
 }
@@ -233,8 +233,8 @@ function UploadCard({ label, accept, icon, loaded, hint, onChange }) {
     <div onClick={() => inputRef.current?.click()} style={{ background: loaded ? "#141a0f" : "#16141a", border: `1.5px solid ${loaded ? "#4a7a2a" : "#2a2530"}`, borderRadius: 10, padding: "20px 18px", cursor: "pointer", display: "flex", alignItems: "center", gap: 14 }}>
       <div style={{ width: 40, height: 40, borderRadius: 8, background: loaded ? "#2a4a1a" : "#201e28", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, flexShrink: 0 }}>{loaded ? "✓" : icon}</div>
       <div>
-        <div style={{ fontSize: 13, fontWeight: 700, color: loaded ? "#7aba4a" : "#a09888", marginBottom: 3 }}>{label}</div>
-        <div style={{ fontSize: 11, color: "#6a6058" }}>{hint}</div>
+        <div style={{ fontSize: 15, fontWeight: 700, color: loaded ? "#7aba4a" : "#c8c0b0", marginBottom: 3 }}>{label}</div>
+        <div style={{ fontSize: 13, fontWeight: 600, color: "#908880" }}>{hint}</div>
       </div>
       <input ref={inputRef} type="file" accept={accept} style={{ display: "none" }} onChange={onChange} />
     </div>
