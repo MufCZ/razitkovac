@@ -177,12 +177,12 @@ export default function App() {
           <div style={{ width: 36, height: 36, borderRadius: 8, background: "linear-gradient(135deg, #c8a96e, #e8d5a3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🖋</div>
           <h1 style={{ margin: 0, fontSize: 22, fontWeight: 700, letterSpacing: "0.04em", color: "#e8d5a3" }}>Razítko na objednávku</h1>
         </div>
-        <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: "#c0b8a8", lineHeight: 1.6 }}>Nahrajte PDF objednávku a PNG podpis/razítko. Umístěte razítko přetažením na správné místo a exportujte jako PNG.</p>
+        <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: "#c0b8a8", lineHeight: 1.6 }}>Nahrajte PDF objednávku a podpis/razítko. Umístěte razítko přetažením na správné místo a exportujte.</p>
       </div>
 
       <div style={{ maxWidth: 780, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>
         <UploadCard label="PDF Objednávka" accept=".pdf" icon="📄" loaded={pdfLoaded} hint={pdfLoaded ? `${pageCanvases.length} strana${pageCanvases.length > 1 ? "y" : ""}` : "Vyberte soubor .pdf"} onChange={(e) => { const f = e.target.files[0]; if (f) handlePdfUpload(f); }} />
-        <UploadCard label="Podpis / Razítko" accept=".png,.jpg,.jpeg" icon="🔖" loaded={stampLoaded} hint={stampLoaded ? "Načteno" : "Vyberte soubor .png"} onChange={(e) => { const f = e.target.files[0]; if (f) handleStampUpload(f); }} />
+        <UploadCard label="Podpis / Razítko" accept=".png,.jpg,.jpeg" icon="🔖" loaded={stampLoaded} hint={stampLoaded ? "Načteno" : "Vyberte soubor"} onChange={(e) => { const f = e.target.files[0]; if (f) handleStampUpload(f); }} />
       </div>
 
       {pdfLoaded && lastCanvas && (
@@ -217,7 +217,7 @@ export default function App() {
           {stampLoaded && <p style={{ fontSize: 13, fontWeight: 600, color: "#a09888", marginTop: 6 }}>Táhněte razítko na správné místo · rohová úchytka pro změnu velikosti</p>}
 
           <button onClick={handleExport} disabled={!stampLoaded || exporting} style={{ marginTop: 20, padding: "12px 28px", background: !stampLoaded || exporting ? "#2a2520" : "linear-gradient(135deg, #c8a96e, #e8c87a)", color: !stampLoaded || exporting ? "#5a5048" : "#1a1510", border: "none", borderRadius: 8, fontFamily: "inherit", fontSize: 14, fontWeight: 700, letterSpacing: "0.05em", cursor: !stampLoaded || exporting ? "not-allowed" : "pointer" }}>
-            {exporting ? "Exportuji…" : exported ? "✓ Staženo — exportovat znovu" : "⬇ Exportovat jako PNG"}
+            {exporting ? "Exportuji…" : exported ? "✓ Staženo — exportovat znovu" : "⬇ Exportovat"}
           </button>
         </div>
       )}
