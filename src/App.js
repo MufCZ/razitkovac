@@ -27,7 +27,7 @@ export default function App() {
     if (!file) return;
     setPdfLoaded(false);
     setPageCanvases([]);
-    setPdfFileName(file.name.replace(/\.[^.]+$/, ""));
+    setPdfFileName(file.name.replace(/\.[^.]+$/, ".jpg"));
     const arrayBuffer = await file.arrayBuffer();
     const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
     const canvases = [];
@@ -162,7 +162,7 @@ export default function App() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${pdfFileName}_razitko.jpg`;
+      a.download = pdfFileName;
       a.click();
       URL.revokeObjectURL(url);
       setExporting(false);
