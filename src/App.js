@@ -20,12 +20,14 @@ export default function App() {
   const [exported, setExported] = useState(false);
   const [pageCanvases, setPageCanvases] = useState([]);
   const [lastPageIndex, setLastPageIndex] = useState(0);
+  const [pdfFileName, setPdfFileName] = useState("objednavka");
   const overlayRef = useRef(null);
 
   const handlePdfUpload = async (file) => {
     if (!file) return;
     setPdfLoaded(false);
     setPageCanvases([]);
+    setPdfFileName(file.name.replace(/\.[^.]+$/, ""));
     const arrayBuffer = await file.arrayBuffer();
     const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
     const canvases = [];
@@ -160,7 +162,7 @@ export default function App() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "objednavka_razitko.jpg";
+      a.download = `${pdfFileName}_razitko.jpg`;
       a.click();
       URL.revokeObjectURL(url);
       setExporting(false);
